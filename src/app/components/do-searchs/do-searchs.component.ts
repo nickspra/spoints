@@ -28,7 +28,7 @@ export class DoSearchsComponent implements OnInit {
   }
   doMobileSearch() {
     this.intervalTime = 100;
-    this.requiredPoints = 60;
+    this.requiredPoints = 200;
     this.doSearch();
   }
   doSearch() {
