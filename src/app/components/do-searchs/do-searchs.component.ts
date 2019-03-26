@@ -14,6 +14,7 @@ export class DoSearchsComponent implements OnInit {
   requiredPoints: number = 90;
   pointsPerSearch: number = 3;
   totalRequiredSearches: number = this.requiredPoints / this.pointsPerSearch;
+  intervalTime: number = 1000; // adjust this parameter to change window spawn rate
 
   constructor(private keywordScraper: KeywordScraperService) { }
 
@@ -25,12 +26,16 @@ export class DoSearchsComponent implements OnInit {
     // });
 
   }
-
+  doMobileSearch() {
+    this.intervalTime = 100;
+    this.requiredPoints = 60;
+    this.doSearch();
+  }
   doSearch() {
     let count = 0;
   	let windows = [];
   	const max = this.totalRequiredSearches; //keywords.length; can be adjusted to only search for the maximum number you need
-  	const intervalTime = 1000; // adjust this parameter to change window spawn rate
+  	const intervalTime = this.intervalTime;
   	const waitToKillTime = (max * intervalTime) + 1000;
 
   	let myInterval = setInterval(() => {
