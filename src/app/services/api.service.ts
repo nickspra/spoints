@@ -13,7 +13,7 @@ export class ApiService {
   }
 
   get(url: string, params?: string) {
-    let enUrl = encodeURIComponent(url);
-    return this.http.get('http://www.whateverorigin.org/get?url=${enUrl}');
+    // let enUrl = encodeURIComponent(url);
+    return this.http.get(url);
   }
 }

@@ -5,11 +5,16 @@ import { ApiService } from './api.service';
   providedIn: 'root'
 })
 export class KeywordScraperService {
+  baseUrl: string = 'https://www.randomlists.com';
 
   constructor(private api: ApiService) { }
 
-  getPageToScrape() {
-    const url:string = 'https://www.mondovo.com/keywords/'; //https://en.wikipedia.org/wiki/Something'
-    return this.api.get(url);
+  // getPageToScrape() {
+  //   const url:string = 'https://www.mondovo.com/keywords/'; //https://en.wikipedia.org/wiki/Something'
+  //   return this.api.get(url);
+  // }
+  getRandomKeywords () {
+      const url = `${this.baseUrl}/data/words.json`;
+      return this.api.get(url);
   }
 }

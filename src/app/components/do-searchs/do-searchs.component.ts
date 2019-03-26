@@ -1,26 +1,29 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-// import { KeywordScraperService } from '../../services/keyword-scraper.service';
+import { KeywordScraperService } from '../../services/keyword-scraper.service';
 import keywords from '../../../assets/keywords.json';
 
 @Component({
   selector: 'app-do-searchs',
   templateUrl: './do-searchs.component.html',
-  styleUrls: ['./do-searchs.component.scss']
-  // providers: [ KeywordScraperService ]
+  styleUrls: ['./do-searchs.component.scss'],
+  providers: [ KeywordScraperService ]
 })
 export class DoSearchsComponent implements OnInit {
-  keywords:Array<string>;
+  keywords:any;
   requiredPoints: number = 90;
   pointsPerSearch: number = 3;
   totalRequiredSearches: number = this.requiredPoints / this.pointsPerSearch;
 
-  constructor() { }
+  constructor(private keywordScraper: KeywordScraperService) { }
 
   ngOnInit() {
-
     this.keywords = keywords.keywords;
-    console.log(this.keywords)
+    // this.keywordScraper.getRandomKeywords().subscribe( res => {
+    //   console.log(res)
+    //   this.keywords = res;
+    // });
+
   }
 
   doSearch() {
