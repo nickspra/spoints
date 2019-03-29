@@ -11,7 +11,7 @@ import keywords from '../../../assets/keywords.json';
 })
 export class DoSearchsComponent implements OnInit {
   keywords:any;
-  requiredPoints: number = 90;
+  requiredPoints: number = 120;
   pointsPerSearch: number = 3;
   totalRequiredSearches: number = this.requiredPoints / this.pointsPerSearch;
   intervalTime: number = 1000; // adjust this parameter to change window spawn rate
@@ -49,14 +49,7 @@ export class DoSearchsComponent implements OnInit {
   		count++;
 
   	}, intervalTime);
-    // setTimeout(() => {
-    //   let windowCount = 0;
-    //   while(windows.length > 0) {
-    //     windows[windowCount].close();
-    //     windowCount++;
-    //   }
-    // }, 1000);
-console.log(waitToKillTime)
+
   	//wait for all windows to be added before closing them
   	setTimeout(() => {
   		windows.forEach(windowItem => {
