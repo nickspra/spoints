@@ -11,10 +11,10 @@ import keywords from '../../../assets/keywords.json';
 })
 export class DoSearchsComponent implements OnInit {
   keywords:any;
-  requiredPoints: number = 120;
+  requiredPoints: number = 320;
   pointsPerSearch: number = 3;
   totalRequiredSearches: number = this.requiredPoints / this.pointsPerSearch;
-  intervalTime: number = 1000; // adjust this parameter to change window spawn rate
+  intervalTime: number = 100; // adjust this parameter to change window spawn rate
 
   constructor(private keywordScraper: KeywordScraperService) { }
 
